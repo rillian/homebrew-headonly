@@ -16,12 +16,12 @@ class Daala < Formula
   depends_on 'jpeg'
   depends_on 'libogg'
   depends_on 'sdl'
-  depends_on 'check'
 
   def install
     system "./autogen.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--disable-doc",
+                          "--disable-unit-tests",
                           "--prefix=#{prefix}"
     system "make install"
   end
